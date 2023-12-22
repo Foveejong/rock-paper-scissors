@@ -12,6 +12,7 @@ function playRound(playerSelection, computerSelection) {
     //if lose --> str, if rock paper, scissors rock and paper scissors
     // else replay the round --> playRound(playerSelection, computerSelection)
     if ((playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'scissors' && computerSelection == 'paper')) {
+        wins++;
         alert(`You Win! ${playerSelection} beats ${computerSelection}!`);
     } else if ((playerSelection == 'rock' && computerSelection == 'paper') || (playerSelection == 'scissors' && computerSelection == 'rock') || (playerSelection == 'paper' && computerSelection == 'scissors')) {
         alert(`You Lose! ${computerSelection} beats ${playerSelection}!`);
@@ -31,9 +32,16 @@ function getComputerChoice() {
 
 
 function game() {
+    wins = 0;
     //loop playRound for 5 rounds
-
-    //keep score
+    for (let r = 0; r < 5; r++) {
+        playRound();
+    }
     
     //announce
+    if (wins >= 3) {
+        alert("You Won!");
+    } else {
+        alert("You Lost!");
+    }
 }
