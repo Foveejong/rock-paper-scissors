@@ -1,11 +1,10 @@
-
 function playRound(playerSelection, computerSelection) {
     // use prompt() to get player input and store it in playerSelection
-    const playerSelection = prompt("What is your selection?");
+    playerSelection = prompt("What is your selection?");
     
     // make playerSelection case-insensitive
     playerSelection = playerSelection.toLowerCase();
-    
+    console.log(playerSelection);
     //if win --> str
     
     //if lose --> str
@@ -15,11 +14,14 @@ function playRound(playerSelection, computerSelection) {
     // return winner "You Lose! Paper beats Rock"
 }
 
-
-
-
 function getComputerChoice() {
-    //return 'rock', 'paper', 'scissors' as a computer's choice
+    //declare array with 3 choices
+    let choices = ['rock', 'paper', 'scissors'];
+
+    //randomise a selection
+    choiceIndex = Math.floor(Math.random() * choices.length);
+    console.log(choiceIndex);
+    console.log(choices[choiceIndex]);
 } 
 
 
