@@ -32,7 +32,7 @@ function getComputerChoice() {
 
 
 function game() {
-    wins = 0;
+    let wins = 0;
     //loop playRound for 5 rounds
     for (let r = 0; r < 5; r++) {
         playRound();
