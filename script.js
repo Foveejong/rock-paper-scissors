@@ -34,7 +34,7 @@ function getComputerChoice() {
 
 
 function game() {
-    let wins = 0;
+    wins = 0;
     //loop playRound for 5 rounds
     for (let r = 0; r < 5; r++) {
         playRound();
