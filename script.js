@@ -4,14 +4,20 @@ function playRound(playerSelection, computerSelection) {
     
     // make playerSelection case-insensitive
     playerSelection = playerSelection.toLowerCase();
-    console.log(playerSelection);
-    //if win --> str
-    
-    //if lose --> str
-    
-    //if tie --> replay the round --> playRound(playerSelection, computerSelection)
-    
-    // return winner "You Lose! Paper beats Rock"
+
+    //get computerSelection
+    computerSelection = getComputerChoice();
+
+    //if win --> str, if paper rock, rock scissors and scissors paper
+    //if lose --> str, if rock paper, scissors rock and paper scissors
+    // else replay the round --> playRound(playerSelection, computerSelection)
+    if ((playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'scissors' && computerSelection == 'paper')) {
+        alert(`You Win! ${playerSelection} beats ${computerSelection}!`);
+    } else if ((playerSelection == 'rock' && computerSelection == 'paper') || (playerSelection == 'scissors' && computerSelection == 'rock') || (playerSelection == 'paper' && computerSelection == 'scissors')) {
+        alert(`You Lose! ${computerSelection} beats ${playerSelection}!`);
+    } else {
+        playRound(playerSelection, computerSelection);
+    }
 }
 
 function getComputerChoice() {
@@ -20,8 +26,7 @@ function getComputerChoice() {
 
     //randomise a selection
     choiceIndex = Math.floor(Math.random() * choices.length);
-    console.log(choiceIndex);
-    console.log(choices[choiceIndex]);
+    return choices[choiceIndex];
 } 
 
 
