@@ -1,3 +1,5 @@
+let wins = 0;
+
 function playRound(playerSelection, computerSelection) {
     // use prompt() to get player input and store it in playerSelection
     playerSelection = prompt("What is your selection?");
