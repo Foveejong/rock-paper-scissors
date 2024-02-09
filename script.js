@@ -11,6 +11,15 @@ buttons.addEventListener("click", function (e) {
     playRound(e.target.value, getComputerChoice)
 });
 
+//create div for displaying results
+const results = document.createElement('div');
+
+// create and add textnode to display results
+results.appendChild(document.createTextNode(""));
+
+//append results to end of document
+document.body.appendChild(results);
+
 function playRound(playerSelection, computerSelection) {
     // make playerSelection case-insensitive
     playerSelection = playerSelection.toLowerCase();
