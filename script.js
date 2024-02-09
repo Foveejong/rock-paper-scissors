@@ -26,7 +26,7 @@ buttons.addEventListener("click", function (e) {
     //get button value and getcomputerchoice
     playRound(e.target.value, getComputerChoice);
     if (compWins === 5 || playerWins === 5){
-        checkWinner(playerWins);
+        displayWinner();
     }
 });
 
@@ -37,9 +37,6 @@ function playRound(playerSelection, computerSelection) {
     //get computerSelection
     computerSelection = getComputerChoice();
 
-    //if win --> str, if paper rock, rock scissors and scissors paper
-    //if lose --> str, if rock paper, scissors rock and paper scissors
-    // else replay the round --> playRound(playerSelection, computerSelection)
     if ((playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'scissors' && computerSelection == 'paper')) {
         playerWins++, rounds++;
         // create and add textnode to display results
@@ -50,6 +47,8 @@ function playRound(playerSelection, computerSelection) {
     } else {
         node.nodeValue = `Tie! Choose Again!`;
     }
+
+    // update score
     playerScore.textContent = playerWins;
     compScore.textContent = compWins;
 }
@@ -63,9 +62,9 @@ function getComputerChoice() {
     return choices[choiceIndex];
 } 
 
-function checkWinner(playerWins) {
+function displayWinner() {
     // update node to announce winner
-    if (playerWins >= 3) {
+    if (playerWins === 5) {
         node.nodeValue = `You Won! Refresh to play again.`
     } else {
         node.nodeValue = `You Lost! Refresh to play again.`
@@ -76,17 +75,3 @@ function checkWinner(playerWins) {
         element.setAttribute("disabled", "true");
     });
 }
-// function game() {
-//     playerWins = 0;
-//     //loop playRound for 5 rounds
-//     for (let r = 0; r < 5; r++) {
-//         playRound();
-//     }
-    
-//     //announce
-//     if (playerWins >= 3) {
-//         alert("You Won!");
-//     } else {
-//         alert("You Lost!");
-//     }
-// }
