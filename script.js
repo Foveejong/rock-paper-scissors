@@ -6,13 +6,17 @@ let wins = 0;
 const buttons = document.querySelector(".buttons");
 
 //upon click, playround
-buttons.addEventListener("click", playRound);
+buttons.addEventListener("click", function (e) {
+    playRound(e.target.value, getComputerChoice)
+});
+
+// buttons.addEventListener("click", e => console.log(e.target.value));
 
 
 function playRound(playerSelection, computerSelection) {
     // use prompt() to get player input and store it in playerSelection
-    playerSelection = prompt("What is your selection?");
-    
+    // playerSelection = prompt("What is your selection?");
+
     // make playerSelection case-insensitive
     playerSelection = playerSelection.toLowerCase();
 
