@@ -1,4 +1,5 @@
 let wins = 0;
+let rounds = 0;
 
 //execute playround when each button is pressed
 
@@ -11,6 +12,9 @@ const results = document.createElement('div');
 // create and add textnode to display results
 const node = document.createTextNode("");
 results.appendChild(node);
+
+// record score
+const score = document.querySelector("span#score");
 
 //append results to end of document
 document.body.appendChild(results);
@@ -33,15 +37,16 @@ function playRound(playerSelection, computerSelection) {
     //if lose --> str, if rock paper, scissors rock and paper scissors
     // else replay the round --> playRound(playerSelection, computerSelection)
     if ((playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'scissors' && computerSelection == 'paper')) {
-        wins++;
+        wins++, rounds++;
         // create and add textnode to display results
         node.nodeValue = `You Win! ${playerSelection} beats ${computerSelection}!`;
     } else if ((playerSelection == 'rock' && computerSelection == 'paper') || (playerSelection == 'scissors' && computerSelection == 'rock') || (playerSelection == 'paper' && computerSelection == 'scissors')) {
+        rounds++;
         node.nodeValue = `You Lose! ${computerSelection} beats ${playerSelection}!`;
     } else {
-        console.log(1);
         node.nodeValue = `Tie! Choose Again!`;
     }
+    score.textContent = wins;
 }
 
 function getComputerChoice() {
