@@ -1,5 +1,14 @@
 let wins = 0;
 
+//execute playround when each button is pressed
+
+//addeventlistener on the div with buttons
+const buttons = document.querySelector(".buttons");
+
+//upon click, playround
+buttons.addEventListener("click", playRound);
+
+
 function playRound(playerSelection, computerSelection) {
     // use prompt() to get player input and store it in playerSelection
     playerSelection = prompt("What is your selection?");
@@ -33,17 +42,17 @@ function getComputerChoice() {
 } 
 
 
-function game() {
-    wins = 0;
-    //loop playRound for 5 rounds
-    for (let r = 0; r < 5; r++) {
-        playRound();
-    }
+// function game() {
+//     wins = 0;
+//     //loop playRound for 5 rounds
+//     for (let r = 0; r < 5; r++) {
+//         playRound();
+//     }
     
-    //announce
-    if (wins >= 3) {
-        alert("You Won!");
-    } else {
-        alert("You Lost!");
-    }
-}
+//     //announce
+//     if (wins >= 3) {
+//         alert("You Won!");
+//     } else {
+//         alert("You Lost!");
+//     }
+// }
