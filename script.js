@@ -5,20 +5,22 @@ let wins = 0;
 //addeventlistener on the div with buttons
 const buttons = document.querySelector(".buttons");
 
-//upon click, playround
-buttons.addEventListener("click", function (e) {
-    //get button value and getcomputerchoice
-    playRound(e.target.value, getComputerChoice)
-});
-
 //create div for displaying results
 const results = document.createElement('div');
 
 // create and add textnode to display results
-results.appendChild(document.createTextNode(""));
+const node = document.createTextNode("");
+results.appendChild(node);
 
 //append results to end of document
 document.body.appendChild(results);
+
+//upon click, playround
+buttons.addEventListener("click", function (e) {
+    //get button value and getcomputerchoice
+    playRound(e.target.value, getComputerChoice);
+
+});
 
 function playRound(playerSelection, computerSelection) {
     // make playerSelection case-insensitive
@@ -32,11 +34,13 @@ function playRound(playerSelection, computerSelection) {
     // else replay the round --> playRound(playerSelection, computerSelection)
     if ((playerSelection == 'paper' && computerSelection == 'rock') || (playerSelection == 'rock' && computerSelection == 'scissors') || (playerSelection == 'scissors' && computerSelection == 'paper')) {
         wins++;
-        alert(`You Win! ${playerSelection} beats ${computerSelection}!`);
+        // create and add textnode to display results
+        node.nodeValue = `You Win! ${playerSelection} beats ${computerSelection}!`;
     } else if ((playerSelection == 'rock' && computerSelection == 'paper') || (playerSelection == 'scissors' && computerSelection == 'rock') || (playerSelection == 'paper' && computerSelection == 'scissors')) {
-        alert(`You Lose! ${computerSelection} beats ${playerSelection}!`);
+        node.nodeValue = `You Lose! ${computerSelection} beats ${playerSelection}!`;
     } else {
-        playRound(playerSelection, computerSelection);
+        console.log(1);
+        node.nodeValue = `Tie! Choose Again!`;
     }
 }
 
